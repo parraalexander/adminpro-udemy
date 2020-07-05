@@ -11,14 +11,11 @@ import { RegisterComponent } from './login/register/register.component';
 
 const routes: Routes = [
 
-  {path:"", component:PagesComponent,
-    children:[
-      {path:"dashboard", component:DashboardComponent},
-      {path:"progress", component:ProgessComponent},
-      {path:"graficas1", component:Graficas1Component},
-      {path:"", redirectTo:"/dashboard", pathMatch:"full"}
-    ]
-  },
+//investigar
+  {
+    path: '',
+    loadChildren: () => import('./pages/pages.module').then(m => m.PageModule)
+  }, 
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
   {path:"**", component:NopagefoundComponent},
@@ -29,3 +26,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
