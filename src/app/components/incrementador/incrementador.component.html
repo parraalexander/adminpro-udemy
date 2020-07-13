@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title"> {{titulo}} </h5>
+      <div class="input-group">
+              <div class="input-group-prepend" id="button-addon3">
+                      <button class="btn btn-outline-primary" type="button" (click)= 'cambiar(-5)' >
+                              <i class="mdi mdi-minus"></i>
+                      </button>
+              </div>
+              <input #incrementadorHijo min="0" max="100" (ngModelChange)="change($event)" type="number" class="form-control" placeholder="" aria-describedby="button-addon3" [(ngModel)]="progress">
+              <div class="input-group-append" id="button-addon4">
+                      <button class="btn btn-outline-primary" type="button" (click)= 'cambiar(5)' > 
+                              <i class="mdi mdi-plus"></i>
+                      </button>
+              </div>
+          </div>
+    </div>
+  </div>

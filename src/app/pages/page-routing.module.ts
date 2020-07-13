@@ -24,3 +24,6 @@ const ROUTER_PAGE: Routes = [
     exports: [RouterModule]
   })
   export class PageRoutingModule { }
+
+
+  // loadChildren: () => import('./pages/pages.module').then( mod => mod.PagesModule)

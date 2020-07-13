@@ -8,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgessComponent implements OnInit {
 
+  barraAzul:string;
+  barraVerde:string;
+  progress1:number = 10;
+  progress2:number = 10;
+  
   constructor() { }
 
   ngOnInit(): void {
+    this.barraAzul = 'Barra Azuuuul';
+    this.barraVerde = 'Barra Verdeeee';
   }
+
+  actualizar(valor : number){
+
+  }
+
 
 }
