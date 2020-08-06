@@ -5,6 +5,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { GraficoDonaComponent } from './grafico-dona/grafico-dona.component';
 import { ChartsModule } from 'ng2-charts';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -24,7 +26,9 @@ import { ChartsModule } from 'ng2-charts';
         GraficoDonaComponent
     ],
     imports: [
-        ChartsModule
+        ChartsModule,
+        RouterModule,
+        CommonModule
     ]
 })
 

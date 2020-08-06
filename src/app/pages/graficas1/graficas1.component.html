@@ -1,19 +1,16 @@
-<div class="container">
-  <div class="row">
-    <div class="col-06 mr-3">
+<div class="row">
+    <div class="col-5">
       <app-grafico-dona [labels]="graficos.grafico1.labels" [data]="graficos.grafico1.data" [titulo]="graficos.grafico1.leyenda"></app-grafico-dona>
     </div>
-
-    <div class="col-06">
+    <div class="col-5 offset-md-2">
       <app-grafico-dona [labels]="graficos.grafico2.labels" [data]="graficos.grafico2.data" [titulo]="graficos.grafico2.leyenda"></app-grafico-dona>
     </div>
-    <div class="row">
-      <div class="col-06 mr-3">
-        <app-grafico-dona [labels]="graficos.grafico3.labels" [data]="graficos.grafico3.data" [titulo]="graficos.grafico3.leyenda"></app-grafico-dona>
-      </div>
-      <div class="col-06">
-        <app-grafico-dona [labels]="graficos.grafico4.labels" [data]="graficos.grafico4.data" [titulo]="graficos.grafico4.leyenda"></app-grafico-dona>
-      </div>
+</div>
+<div class="row">
+    <div class="col-5">
+      <app-grafico-dona [labels]="graficos.grafico3.labels" [data]="graficos.grafico3.data" [titulo]="graficos.grafico3.leyenda"></app-grafico-dona>
     </div>
-  </div>
+    <div class="col-5 offset-md-2">
+      <app-grafico-dona [labels]="graficos.grafico4.labels" [data]="graficos.grafico4.data" [titulo]="graficos.grafico4.leyenda"></app-grafico-dona>
+    </div>
 </div>

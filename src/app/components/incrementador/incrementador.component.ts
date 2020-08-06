@@ -13,6 +13,7 @@ export class IncrementadorComponent implements OnInit {
   @Input('valorProgress')  progress:number = 50;
   @Output('progress') emitirProgress : EventEmitter<Number> = new EventEmitter();
   @ViewChild("incrementadorHijo") child: ElementRef;
+  @Input() btnClass:'btn btn-outline-primary';
 
  
 

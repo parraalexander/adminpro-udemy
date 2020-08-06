@@ -9,6 +9,7 @@ import { PagesComponent } from './pages.component';
 import { ShareModule } from '../shared/share.module';
 import { PageRoutingModule } from './page-routing.module';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 
@@ -20,7 +21,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
         Graficas1Component,
         ProgessComponent,
         PagesComponent,
-        IncrementadorComponent
+        IncrementadorComponent,
+        AccountSettingsComponent
     ],
     exports:[
         DashboardComponent,
