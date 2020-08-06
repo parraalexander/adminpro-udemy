@@ -10,6 +10,8 @@ import { ShareModule } from '../shared/share.module';
 import { PageRoutingModule } from './page-routing.module';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 
@@ -22,7 +24,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         ProgessComponent,
         PagesComponent,
         IncrementadorComponent,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromesasComponent,
+        RxjsComponent
     ],
     exports:[
         DashboardComponent,

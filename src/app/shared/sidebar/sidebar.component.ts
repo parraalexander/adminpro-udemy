@@ -11,10 +11,16 @@ export class SidebarComponent implements OnInit {
 
   menu: any[];
   constructor(private sidebarService: SidebarService) { 
-    this.menu = sidebarService.menu;
+   
   }
 
   ngOnInit(): void {
+  this.menu = this.sidebarService.menu;
+    this.menu.forEach((item) =>
+    {
+      let submenu = item.submenu.sort((a,b)=> {
+        return a.titulo > b.titulo ? 1: -1;
+      });
+    });
   }
-
 }
