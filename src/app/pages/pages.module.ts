@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
@@ -12,6 +12,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -26,7 +28,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         IncrementadorComponent,
         AccountSettingsComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        EditarPerfilComponent
     ],
     exports:[
         DashboardComponent,
@@ -36,9 +39,11 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         IncrementadorComponent
     ],
     imports: [
+        CommonModule,
         ShareModule,
         PageRoutingModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule,
       ]
 
 })

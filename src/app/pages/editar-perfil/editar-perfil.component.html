@@ -1,0 +1,52 @@
+<div class="row">
+        <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Editar Perfil</h4>
+                        <h6 class="card-subtitle">Por favor edite el nomre y el correo</h6>
+                        <form class="form p-t-20" [formGroup]="formEdit">
+                            <div class="form-group">
+                                <label for="exampleInputuname">Nombre</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-user"></i></div>
+                                    <input type="text"  formControlName="nombre" class="form-control" id="exampleInputuname" placeholder="nombre">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Correo</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-email"></i></div>
+                                    <input [readonly]="usuario.google" type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="correo">
+                                </div>
+                            </div>
+                            <div *ngIf="!validarCampos('nombre')" class="form-group text-center m-t-20" class="alert alert-danger" role="alert">
+                                    <span>  El campo nombre es requerido</span>
+                            </div>
+                            <div *ngIf="!validarCampos('email')" class="form-group text-center m-t-20" class="alert alert-danger" role="alert">
+                                    <span>  El campo correo es requerido</span>
+                            </div>
+                            <button type="submit" [disabled]="formEdit.invalid" type= "submit" (click)="actualizar()" class="btn btn-success  btn-block waves-effect waves-light m-r-10 mdi mdi-content-save">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Avatar</h4>
+                            <div class="text-center">
+                                    <img  *ngIf="!fotoPreview" class="img-avatar" [src]="usuario.imgUser">
+                                    <img  *ngIf="fotoPreview" class="img-avatar" [src]="fotoPreview">
+                            </div>
+                            <br>
+                            <h6 class="card-subtitle">Selecciona una image</h6>
+                            <input type="file" class="form-control" (change)="actualizarFoto($event.target.files[0])">
+                            <br>
+                            <br>
+                            <button type="button"  [disabled]="!foto" (click)="uploadFoto()"class="btn btn-success btn-block waves-effect waves-light m-r-10 mdi mdi-content-save">Actualizar</button>
+                            
+                        </div>
+                    </div>
+            </div>
+          
+</div>

@@ -8,6 +8,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 
 
 
@@ -16,9 +17,10 @@ const ROUTER_PAGE: Routes = [
       canActivate:[AuthGuard],
         children:[
         {path:"", component:DashboardComponent, data:{titulo:"Dashboar"}},
-        {path:"progress", component:ProgessComponent, data:{titulo:"Progess Bar"}},
-        {path:"graficas1", component:Graficas1Component, data:{titulo:"Graficas"}},
         {path:"account-settings", component:AccountSettingsComponent, data:{titulo:"Ajuste de temas"}},
+        {path:"editarPerfil", component:EditarPerfilComponent},
+        {path:"graficas1", component:Graficas1Component, data:{titulo:"Graficas"}},
+        {path:"progress", component:ProgessComponent, data:{titulo:"Progess Bar"}},
         {path:"promesas", component:PromesasComponent, data:{titulo:"Promesas"}},
         {path:"rxjs", component:RxjsComponent, data:{titulo:"RxJs"}}
         ]

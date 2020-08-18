@@ -6,6 +6,8 @@ import { UsuarioLogin } from '../interfaces/UsuarioLogin.Interface';
 import { tap, map, catchError } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Usuario } from '../models/usuario.model';
+import { EmailValidator } from '@angular/forms';
 
 
 
@@ -19,6 +21,8 @@ declare const gapi;
 export class UsuarioService {
 
   public auth2:any;
+
+  public usuario : Usuario;
 
   constructor(private httpClient: HttpClient, private router: Router
     ,private ngZone : NgZone) { 
@@ -40,6 +44,10 @@ export class UsuarioService {
     });
   }
 
+  get token():string {
+    return localStorage.getItem('token') || '';
+  }
+
   logout(){
     localStorage.removeItem('token');
     this.auth2.signOut().then(() => {
@@ -50,6 +58,22 @@ export class UsuarioService {
     });
 
   }
+
+  actualizarUsuario(data:{ user:string, email:string, role:string}){
+    const token = this.token;
+    data = {
+      ...data,
+      role: this.usuario.role
+    }
+    console.log(data);
+    return this.httpClient.put(`${base_url}usuarios/${this.usuario.uid}`, data,  {
+        headers:{
+          'x-token':token
+        }
+    });
+
+  }
+
   crearUsuario(user : UsuarioRegister) {
     return this.httpClient.post(`${base_url}usuarios`,user );
 
@@ -87,13 +111,24 @@ export class UsuarioService {
           'x-token':token
         }
     }).pipe(
-      tap(
-        (response:any) => {
-          localStorage.setItem('token', response.jwt);
-        }
-        )
-      ,map( resp => true )
+      map(
+          (res:any) => {
+            const { 
+              nombre,
+              email,
+              img,
+              role,
+              google,
+              uid
+            } = res.usuario;
+
+            this.usuario = new Usuario(uid,nombre,email,'',img,role,google);
+            localStorage.setItem('token', res.jwt);
+            return true 
+          }
+      )
       ,catchError(Error => of(false))
+
     );
   }
 }
